@@ -17,6 +17,25 @@ const rightAlign = (text, width) => `${
 }`
 
 const calculate = () => {
+    const unknownEmoji = noteText
+        .replace(/Family Chores/g, "")
+        .replace(/~/g, "")
+        .replace(new RegExp(Object.keys(personMultipliers).join("|"), 'gu'), "")
+        .replace(new RegExp(Object.keys(choreValues).join("|"), 'gu'), "")
+    if (unknownEmoji) {
+        console.error(`
+⚠️⚠️⚠️ CRISIS ⚠️⚠️⚠️
+
+The following emoji are not recognized: 
+${unknownEmoji}
+
+Go see 🟡 to have this horrible situation amended.
+
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+        `)
+        return;
+    }
+
     const result = {};
     noteText.split("~").forEach((persons, index, choreText) => {
         if (++index % 2) return;
