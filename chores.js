@@ -47,7 +47,7 @@ const calculate = () => {
         result[person].rightAlignedYucky = rightAlign(`${result[person].yuckyChores}`, 8);
     });
 
-    console.error(`
+    return `
 ┏━━┳━━━━┳━━━━━┳━━━━┓
     \t👤\t\t  🧮\t\t   ⌛️\t\t\t🕘
     
@@ -57,7 +57,7 @@ const calculate = () => {
             (acc.push(`\t${person}\t${result[person].rightAlignedCount}\t${result[person].rightAlignedScore}\t${result[person].rightAlignedYucky}`), acc), []
         ).join("\n")}
  ┗━━┻━━━━┻━━━━━┻━━━━┛
-`);
+`;
 }
 
 return calculate();
