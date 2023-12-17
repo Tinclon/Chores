@@ -20,9 +20,12 @@ const calculate = () => {
     const unknownEmoji = noteText
         .replace(/Family Chores/g, "")
         .replace(/~/g, "")
-        .replace(/ /g, "")
         .replace(new RegExp(Object.keys(personMultipliers).join("|"), 'gu'), "")
         .replace(new RegExp(Object.keys(choreValues).join("|"), 'gu'), "")
+        .replace(/\p{Other}/gu,"")
+        .replace(/\p{Surrogate}/gu,"")
+        .replace(/[\uFE00–\uFE0F]+/gu,"")
+        .replace(/\s/gu, "");
     if (unknownEmoji && unknownEmoji.length > 1) {
         console.error(`
 ⚠️⚠️⚠️ CRISIS ⚠️⚠️⚠️
