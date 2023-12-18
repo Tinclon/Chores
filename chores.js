@@ -22,8 +22,6 @@ const calculate = () => {
         .replace(/~/gu, "")
         .replace(new RegExp(Object.keys(personMultipliers).join("|"), 'gu'), "")
         .replace(new RegExp(Object.keys(choreValues).join("|"), 'gu'), "")
-        .replace(/\p{Other}/gu,"")
-        .replace(/\p{Surrogate}/gu,"")
         .replace(/[\uFE00–\uFE0F]+/gu,"")
         .replace(/\s/gu, "");
     if (unknownEmoji && unknownEmoji.length > 0) {
